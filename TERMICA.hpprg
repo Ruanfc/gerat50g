@@ -7,7 +7,7 @@
 
 @{12 1} 0.8 CON
 @{12 1} 0.3 CON
-@COLP 'GTMAT' STO
+@COLP 'GTGUIA' STO
 
 @[100 200] 'GTVEC' STO
 @[0.8 0.85] 'FCAP' STO
@@ -22,7 +22,7 @@
    1 termicas FOR k
      IF
      eap
-     GTMAT @Matriz de curva guia
+     GTGUIA @Matriz de curva guia
      J k 2 çLIST GET @mÍs J da curva J
      <
      THEN
@@ -31,10 +31,21 @@
      FCAP @Vetor do fator de capacidade
      k 1 çLIST GET @ Obtem J-Èsimo elemento
      *
+     @ Permanece na pilha cada geraÁ„o tÈrmica no mÍs
+     DUP
      GT + 'GT' STO
+     ELSE
+     @ Se n„o houver geraÁ„o tÈrmica, a geraÁ„o È zero
+     0
      END
    NEXT
-   GT
-   
+        @Append ‡ matriz de geraÁ„o tÈrmica
+     {1 2} çARRY
+     GTMAT
+     IF DUP TYPE 3 == THEN
+        SWAP ROWP 'GTMAT'
+     END
+     STO
+   GT   
   ª
 ª
