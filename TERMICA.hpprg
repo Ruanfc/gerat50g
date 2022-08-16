@@ -1,0 +1,40 @@
+%%HP: T(0)A(D)F(.);
+@ Argumentos:
+@ Author:
+@ E-mail:
+@ Version:
+@ Created using HPUserEdit 5 [www.unparche.com]
+
+@{12 1} 0.8 CON
+@{12 1} 0.3 CON
+@COLP 'GTMAT' STO
+
+@[100 200] 'GTVEC' STO
+@[0.8 0.85] 'FCAP' STO
+
+@0.2 2
+´
+ @percentual da energia m·xima armazenada
+  ç eap J @termicas termicas = quantidade de usinas tÈrmicas
+  ´
+   GTVEC SIZE OBJç DROP 'termicas' STO
+   0 'GT' STO
+   1 termicas FOR k
+     IF
+     eap
+     GTMAT @Matriz de curva guia
+     J k 2 çLIST GET @mÍs J da curva J
+     <
+     THEN
+     GTVEC @Vetor de geraÁıes tÈrmicas
+     k 1 çLIST GET @ Obtem J-Èsimo elemento
+     FCAP @Vetor do fator de capacidade
+     k 1 çLIST GET @ Obtem J-Èsimo elemento
+     *
+     GT + 'GT' STO
+     END
+   NEXT
+   GT
+   
+  ª
+ª

@@ -1,0 +1,16 @@
+%%HP: T(0)A(D)F(.);
+@ Argumentos:
+@ Autor:
+@ E-mail:
+@ Versión:
+@ Creado con HPUserEdit 6
+
+@ %NAME%=
+@ %DIR%=
+
+«
+   mat row
+  «
+   mat row mat SIZE 1 GET 1 + ROW+
+  »
+»
