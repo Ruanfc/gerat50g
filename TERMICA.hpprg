@@ -23,7 +23,7 @@
      IF
      eap
      GTGUIA @Matriz de curva guia
-     J k 2 LIST GET @mês J da curva J
+     J k 2 LIST GET 100 / @mês J da curva J
      <
      THEN
      GTVEC @Vetor de gerações térmicas
@@ -40,7 +40,8 @@
      END
    NEXT
         @Append à matriz de geração térmica
-     {1 2} ARRY
+     @{1 2} ARRY
+     1 GTVEC SIZE OBJ DROP 2 LIST ARRY
      GTMAT
      IF DUP TYPE 3 == THEN
         SWAP ROWP 'GTMAT'
